@@ -37,10 +37,19 @@ public class MainActivity extends AppCompatActivity {
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private FaceDetector faceDetector;
 
+    static {
+        System.loadLibrary("facemask");
+    }
+
+    public native String stringFromJNI();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Verify C++ bridge on startup
+        Log.d(TAG, "Native Call Result: " + stringFromJNI());
 
         viewFinder = findViewById(R.id.viewFinder);
         graphicOverlay = findViewById(R.id.graphicOverlay);

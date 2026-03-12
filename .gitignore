@@ -55,7 +55,7 @@ captures/
 .idea/inspectionProfiles/
 *.iws
 *.ipr
-
+app/.cxx/*
 # Keystore files (debug keystore is usually not committed)
 *.jks
 *.keystore
