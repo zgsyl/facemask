@@ -14,8 +14,11 @@ add_library(facemask SHARED
 target_include_directories(facemask PRIVATE ${CMAKE_SOURCE_DIR}/ncnn-android-vulkan/${ANDROID_ABI}/include)
 
 
+find_package(OpenMP REQUIRED)
+
 find_library(log-lib log)
 
 target_link_libraries(facemask
                       ncnn
+                      OpenMP::OpenMP_CXX
                       ${log-lib})
